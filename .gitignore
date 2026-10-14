@@ -1,0 +1,8 @@
+# Blender backup and autosave files
+*.blend1
+*.blend2
+*.blend@
+
+# OS files
+Thumbs.db
+.DS_Store
