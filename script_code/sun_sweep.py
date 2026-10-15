@@ -16,7 +16,7 @@ THE PATH (all directions are seen from the satellite; +Z is up)
   of the satellite on one side and behind it on the other.
 
 Run (Blender console / Scripting tab):
-  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\sun_sweep.py", run_name="sweep")
+  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\script_code\\sun_sweep.py", run_name="sweep")
   ns["run"]()                 # both satellites, 36 positions each (every 10 degrees along the ellipse)
 Builds on render_angles.py (same folder).
 """
@@ -27,7 +27,8 @@ import runpy
 
 from mathutils import Vector
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"        # folder holding these scripts
+ROOT = r"C:\SSA\FYProject_SSA_Training"   # project root: renders, data and videos go here
 
 CAM_AZ, CAM_EL = 45.0, 10.0         # fixed camera direction as seen from the satellite
 ELLIPSE_AZ_OFFSET = 60.0            # horizontal axis of the ellipse, degrees away from the camera azimuth
@@ -60,7 +61,7 @@ def sun_path(step=STEP_DEG):
 
 def run(out_dir=None, engine="EEVEE", samples=SAMPLES, res=RES, models=None, framing=1.05, ambient=AMBIENT):
     ra = runpy.run_path(os.path.join(HERE, "render_angles.py"), run_name="render_angles")
-    out_dir = out_dir or os.path.join(HERE, "renders_sun_sweep")
+    out_dir = out_dir or os.path.join(ROOT, "renders_sun_sweep")
     path = sun_path()
     shots = [dict(name=f"sun{int(p['t']):03d}", sun_az=p["sun_az"], sun_el=p["sun_el"],
                   cam_az=CAM_AZ, cam_el=CAM_EL, rot_x=0, rot_z=0) for p in path]

@@ -21,7 +21,7 @@ Blender is busy (frozen) while a test runs; that is normal. Re-running an unfini
 import os
 import runpy
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"
 TEST = "setup"                  # <-- change this
 
 

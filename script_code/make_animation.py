@@ -1,7 +1,7 @@
 """
 make_animation.py - animate the dawn-dusk pass as a side-by-side video (detailed vs low-poly).
 
-  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\make_animation.py", run_name="anim")
+  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\script_code\\make_animation.py", run_name="anim")
   ns["render_frames"](max_seconds=100)   # repeat until it reports remaining == 0 (resumable)
   ns["assemble"]()                      # builds the MP4 from the rendered frames
 
@@ -25,7 +25,7 @@ LABELS = {"Aqua_detailed": "Aqua  -  detailed (115k triangles)",
 
 _here = os.path.dirname(os.path.abspath(globals().get("__file__", "")))
 if not os.path.exists(os.path.join(_here, "render_angles.py")):
-    _here = r"C:\SSA\FYProject_SSA_Training"
+    _here = r"C:\SSA\FYProject_SSA_Training\script_code"
 
 
 def _load():

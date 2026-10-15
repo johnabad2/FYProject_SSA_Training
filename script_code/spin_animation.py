@@ -10,7 +10,7 @@ It reuses the scene builder from fidelity_test.py (same models, same Sun, same o
 pictures match the brightness numbers in fidelity_test/data/frames_spin_phase090.csv.
 
 Run (Blender console / Scripting tab):
-  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\spin_animation.py", run_name="spin")
+  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\script_code\\spin_animation.py", run_name="spin")
   ns["run"]()         # resumable: frames that already exist are skipped
 Then run make_spin_animation.py (any Python with Pillow, matplotlib, numpy, ffmpeg) to build the video.
 """
@@ -20,8 +20,9 @@ import runpy
 
 import bpy
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
-OUT = os.path.join(HERE, "fidelity_test", "animation_spin90")
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"        # folder holding these scripts
+ROOT = r"C:\SSA\FYProject_SSA_Training"   # project root: renders, data and videos go here
+OUT = os.path.join(ROOT, "fidelity_test", "animation_spin90")
 VARIANTS = ["A", "D4k", "N4k"]
 PHASE = 90                      # Sun azimuth offset from the camera (same as the fidelity test's "spin, 90")
 STEP = 5                        # degrees of spin per frame (72 frames)

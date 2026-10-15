@@ -9,7 +9,7 @@ setup_scene.py - put the open Blender scene into the state the SSA tests expect.
   * any other lights are switched off (hidden, not deleted)
 
 Safe to run again at any time.
-  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\setup_scene.py", run_name="setup"); ns["setup"]()
+  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\script_code\\setup_scene.py", run_name="setup"); ns["setup"]()
 """
 import math
 import os
@@ -17,7 +17,7 @@ import runpy
 
 import bpy
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"
 SUN_AZ, SUN_EL = 45, 35        # Sun direction seen from the satellite
 CAM_AZ, CAM_EL = 45, 20        # camera direction seen from the satellite
 RES = (1280, 720)

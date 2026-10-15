@@ -8,7 +8,7 @@ observer directions for every moment of one visible pass, then hands them to ren
 Run it:
   * Blender console / Scripting tab:
         import runpy
-        ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\dawn_dusk_scenario.py", run_name="scenario")
+        ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\script_code\\dawn_dusk_scenario.py", run_name="scenario")
         ns["run"]()                       # EEVEE, both satellites
         ns["run"](engine="CYCLES")        # slower, higher quality
   * Terminal:
@@ -123,9 +123,9 @@ def compute_pass(n_frames=None):
 def run(out_dir=None, engine="EEVEE", samples=64, res=(1280, 720), models=None, framing=1.05):
     here = os.path.dirname(os.path.abspath(globals().get("__file__", "")))
     if not here or not os.path.exists(os.path.join(here, "render_angles.py")):
-        here = r"C:\SSA\FYProject_SSA_Training"
+        here = r"C:\SSA\FYProject_SSA_Training\script_code"
     ra = runpy.run_path(os.path.join(here, "render_angles.py"), run_name="render_angles")
-    out_dir = out_dir or os.path.join(here, "renders_dawn_dusk")
+    out_dir = out_dir or os.path.join(r"C:\SSA\FYProject_SSA_Training", "renders_dawn_dusk")
 
     frames, meta = compute_pass()
     shots = [dict(name=f"t{int(f['t']):03d}s_elev{int(round(f['obs_elev'])):02d}",

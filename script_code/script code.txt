@@ -27,7 +27,7 @@ Blender is busy (frozen) while a test runs; that is normal. Re-running an unfini
 import os
 import runpy
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"
 TEST = "setup"                  # <-- change this
 
 
@@ -83,7 +83,7 @@ import runpy
 
 import bpy
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"
 SUN_AZ, SUN_EL = 45, 35        # Sun direction seen from the satellite
 CAM_AZ, CAM_EL = 45, 20        # camera direction seen from the satellite
 RES = (1280, 720)
@@ -573,9 +573,9 @@ def compute_pass(n_frames=None):
 def run(out_dir=None, engine="EEVEE", samples=64, res=(1280, 720), models=None, framing=1.05):
     here = os.path.dirname(os.path.abspath(globals().get("__file__", "")))
     if not here or not os.path.exists(os.path.join(here, "render_angles.py")):
-        here = r"C:\SSA\FYProject_SSA_Training"
+        here = r"C:\SSA\FYProject_SSA_Training\script_code"
     ra = runpy.run_path(os.path.join(here, "render_angles.py"), run_name="render_angles")
-    out_dir = out_dir or os.path.join(here, "renders_dawn_dusk")
+    out_dir = out_dir or os.path.join(r"C:\SSA\FYProject_SSA_Training", "renders_dawn_dusk")
 
     frames, meta = compute_pass()
     shots = [dict(name=f"t{int(f['t']):03d}s_elev{int(round(f['obs_elev'])):02d}",
@@ -640,7 +640,7 @@ LABELS = {"Aqua_detailed": "Aqua  -  detailed (115k triangles)",
 
 _here = os.path.dirname(os.path.abspath(globals().get("__file__", "")))
 if not os.path.exists(os.path.join(_here, "render_angles.py")):
-    _here = r"C:\SSA\FYProject_SSA_Training"
+    _here = r"C:\SSA\FYProject_SSA_Training\script_code"
 
 
 def _load():
@@ -1063,8 +1063,9 @@ import bpy
 import numpy as np
 from mathutils import Matrix, Vector
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
-OUT_DIR = os.path.join(HERE, "fidelity_test")
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"        # folder holding these scripts
+ROOT = r"C:\SSA\FYProject_SSA_Training"   # project root: renders, data and videos go here
+OUT_DIR = os.path.join(ROOT, "fidelity_test")
 RES = 512
 SAMPLES = 16
 SUN_STRENGTH = 4.0
@@ -1479,7 +1480,8 @@ import runpy
 
 from mathutils import Vector
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"        # folder holding these scripts
+ROOT = r"C:\SSA\FYProject_SSA_Training"   # project root: renders, data and videos go here
 
 CAM_AZ, CAM_EL = 45.0, 10.0         # fixed camera direction as seen from the satellite
 ELLIPSE_AZ_OFFSET = 60.0            # horizontal axis of the ellipse, degrees away from the camera azimuth
@@ -1512,7 +1514,7 @@ def sun_path(step=STEP_DEG):
 
 def run(out_dir=None, engine="EEVEE", samples=SAMPLES, res=RES, models=None, framing=1.05, ambient=AMBIENT):
     ra = runpy.run_path(os.path.join(HERE, "render_angles.py"), run_name="render_angles")
-    out_dir = out_dir or os.path.join(HERE, "renders_sun_sweep")
+    out_dir = out_dir or os.path.join(ROOT, "renders_sun_sweep")
     path = sun_path()
     shots = [dict(name=f"sun{int(p['t']):03d}", sun_az=p["sun_az"], sun_el=p["sun_el"],
                   cam_az=CAM_AZ, cam_el=CAM_EL, rot_x=0, rot_z=0) for p in path]
@@ -1558,8 +1560,9 @@ import runpy
 
 import bpy
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
-OUT = os.path.join(HERE, "fidelity_test", "animation_spin90")
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"        # folder holding these scripts
+ROOT = r"C:\SSA\FYProject_SSA_Training"   # project root: renders, data and videos go here
+OUT = os.path.join(ROOT, "fidelity_test", "animation_spin90")
 VARIANTS = ["A", "D4k", "N4k"]
 PHASE = 90                      # Sun azimuth offset from the camera (same as the fidelity test's "spin, 90")
 STEP = 5                        # degrees of spin per frame (72 frames)

@@ -20,7 +20,7 @@ GEOMETRY (all in the horizontal plane, +Z up)
 
 Runs in its own temporary scene, so your satellite scene is not touched.
 Usage (Blender console):
-  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\material_tests.py", run_name="mt")
+  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\script_code\\material_tests.py", run_name="mt")
   ns["spin_sweep"]("plate_diffuse"); ns["spin_sweep"]("sphere_diffuse"); ns["spin_sweep"]("panel_shiny")
   ns["distance_sweep"]()
 """

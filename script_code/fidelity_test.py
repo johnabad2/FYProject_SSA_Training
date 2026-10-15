@@ -22,7 +22,7 @@ GEOMETRIES
   dawn-dusk    : the 48-frame pass from dawn_dusk_scenario.py (Sun, observer and spin change together)
 
 Usage (Blender console):
-  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\fidelity_test.py", run_name="fid")
+  ns = runpy.run_path(r"C:\\SSA\\FYProject_SSA_Training\\script_code\\fidelity_test.py", run_name="fid")
   ns["run"]()            # resumable: finished geometries are skipped
 """
 import csv
@@ -36,8 +36,9 @@ import bpy
 import numpy as np
 from mathutils import Matrix, Vector
 
-HERE = r"C:\SSA\FYProject_SSA_Training"
-OUT_DIR = os.path.join(HERE, "fidelity_test")
+HERE = r"C:\SSA\FYProject_SSA_Training\script_code"        # folder holding these scripts
+ROOT = r"C:\SSA\FYProject_SSA_Training"   # project root: renders, data and videos go here
+OUT_DIR = os.path.join(ROOT, "fidelity_test")
 RES = 512
 SAMPLES = 16
 SUN_STRENGTH = 4.0
