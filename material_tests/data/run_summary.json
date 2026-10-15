@@ -1,0 +1,27 @@
+[
+ {
+  "object": "plate_diffuse",
+  "frames": 180,
+  "seconds": 52.7,
+  "csv": "C:\\SSA\\FYProject_SSA_Training\\material_tests\\data\\spin_plate_diffuse.csv",
+  "max_brightness": 9450.8154296875
+ },
+ {
+  "object": "sphere_diffuse",
+  "frames": 180,
+  "seconds": 51.4,
+  "csv": "C:\\SSA\\FYProject_SSA_Training\\material_tests\\data\\spin_sphere_diffuse.csv",
+  "max_brightness": 5118.10986328125
+ },
+ {
+  "object": "panel_shiny",
+  "frames": 348,
+  "seconds": 96.4,
+  "csv": "C:\\SSA\\FYProject_SSA_Training\\material_tests\\data\\spin_panel_shiny.csv",
+  "max_brightness": 6138908.0
+ },
+ {
+  "csv": "C:\\SSA\\FYProject_SSA_Training\\material_tests\\data\\distance_sphere_diffuse.csv",
+  "rows": 7
+ }
+]
