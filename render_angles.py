@@ -161,14 +161,14 @@ def ensure_camera():
     return obj
 
 
-def ensure_space_world():
+def ensure_space_world(ambient=None):
     w = bpy.data.worlds.get("SSA_Space")
     if w is None:
         w = bpy.data.worlds.new("SSA_Space")
     w.use_nodes = True
     bg = w.node_tree.nodes.get("Background")
     bg.inputs["Color"].default_value = (0.5, 0.6, 1.0, 1.0)     # faint cool "Earthshine" tint
-    bg.inputs["Strength"].default_value = AMBIENT                # 0 = pure black background/shadows
+    bg.inputs["Strength"].default_value = AMBIENT if ambient is None else ambient                # 0 = pure black background/shadows
     return w
 
 
@@ -192,9 +192,10 @@ def configure_render(scene, engine, res, samples):
 # main
 # --------------------------------------------------------------------------
 def main(out_dir=None, engine="EEVEE", shots=None, models=None, res=RES, samples=SAMPLES,
-         framing=None, filename=None, write_log=True):
+         framing=None, filename=None, write_log=True, ambient=None):
     """filename(model_label, index, shot) -> str lets a caller choose output names (used for
-    animation frames); write_log=False skips render_log.csv."""
+    animation frames); write_log=False skips render_log.csv.
+    ambient overrides AMBIENT (0 = pure black space, no fill light)."""
     scene = bpy.context.scene
     shots = SHOTS if shots is None else shots
     models = MODELS if models is None else models
@@ -204,7 +205,7 @@ def main(out_dir=None, engine="EEVEE", shots=None, models=None, res=RES, samples
     os.makedirs(out_dir, exist_ok=True)
 
     groups = [setup_group(m) for m in models]
-    sun, cam, world = ensure_sun(), ensure_camera(), ensure_space_world()
+    sun, cam, world = ensure_sun(), ensure_camera(), ensure_space_world(ambient)
 
     # remember everything we change so the scene is left as we found it
     saved = dict(camera=scene.camera, world=scene.world, engine=scene.render.engine,

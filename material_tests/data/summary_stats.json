@@ -1,0 +1,37 @@
+{
+ "reference_matte_sphere_flux": 5117.285983615451,
+ "sphere_spread_pct": 0.0449227995535211,
+ "plate": {
+  "peak_rel": 1.846841364728718,
+  "peak_at_deg": 32.0,
+  "theory_rms_err_pct_of_peak": 0.10783073406841599,
+  "frac_of_spin_above_50pct_of_peak": 0.4111111111111111,
+  "frac_of_spin_dark_below_1pct": 0.34444444444444444,
+  "area_vs_cos_max_dev_pct": 0.0695449649224078
+ },
+ "shiny": {
+  "peak_rel": 1199.6413762403708,
+  "peak_at_deg": 30.0,
+  "floor_rel": 0.37068883436273775,
+  "peak_over_floor": 3236.249018135953,
+  "flash_30": {
+   "peak_rel": 1199.6413762403708,
+   "peak_at": 30.0,
+   "fwhm_deg": 1.6000000000000014,
+   "n_points_in_fwhm": 17
+  },
+  "flash_210": {
+   "peak_rel": 1199.6413762403708,
+   "peak_at": 210.0,
+   "fwhm_deg": 1.6000000000000227,
+   "n_points_in_fwhm": 17
+  },
+  "coarse_frac_brighter_than_sphere": 0.07777777777777778,
+  "fraction_of_spin_above_1pct_of_peak_estimate_deg": 14.0
+ },
+ "distance": {
+  "brightness_slope": -2.0149986077813784,
+  "area_slope": -2.004275631475208,
+  "brightness_over_area_spread_pct": 2.475118888754418
+ }
+}
