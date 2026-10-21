@@ -61,7 +61,7 @@ def sun_path(step=STEP_DEG):
 
 def run(out_dir=None, engine="EEVEE", samples=SAMPLES, res=RES, models=None, framing=1.05, ambient=AMBIENT):
     ra = runpy.run_path(os.path.join(HERE, "render_angles.py"), run_name="render_angles")
-    out_dir = out_dir or os.path.join(ROOT, "renders_sun_sweep")
+    out_dir = out_dir or os.path.join(ROOT, "renders", "renders_sun_sweep")
     path = sun_path()
     shots = [dict(name=f"sun{int(p['t']):03d}", sun_az=p["sun_az"], sun_el=p["sun_el"],
                   cam_az=CAM_AZ, cam_el=CAM_EL, rot_x=0, rot_z=0) for p in path]

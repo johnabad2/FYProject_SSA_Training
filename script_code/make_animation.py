@@ -17,8 +17,8 @@ FPS = 24
 SECONDS = 10                       # video length; the 497 s pass is played back faster than real time
 N = FPS * SECONDS
 RES = (1280, 720)                  # per satellite; the video is twice as wide
-FRAMES_DIR = r"C:\SSA\animation_frames_v2"   # outside the repo (hundreds of MB of PNGs)
-VIDEO = r"C:\SSA\FYProject_SSA_Training\dawn_dusk_pass.mp4"
+FRAMES_DIR = r"C:\SSA\animation_frames"      # outside the repo (hundreds of MB of PNGs)
+VIDEO = r"C:\SSA\FYProject_SSA_Training\renders\renders_dawn_dusk\dawn_dusk_pass.mp4"
 FRAMING = 1.05
 LABELS = {"Aqua_detailed": "Aqua  -  detailed (115k triangles)",
           "SuomiNPP_lowpoly": "Suomi NPP  -  low-poly (4k triangles)"}

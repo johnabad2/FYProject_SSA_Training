@@ -125,7 +125,7 @@ def run(out_dir=None, engine="EEVEE", samples=64, res=(1280, 720), models=None, 
     if not here or not os.path.exists(os.path.join(here, "render_angles.py")):
         here = r"C:\SSA\FYProject_SSA_Training\script_code"
     ra = runpy.run_path(os.path.join(here, "render_angles.py"), run_name="render_angles")
-    out_dir = out_dir or os.path.join(r"C:\SSA\FYProject_SSA_Training", "renders_dawn_dusk")
+    out_dir = out_dir or os.path.join(r"C:\SSA\FYProject_SSA_Training", "renders", "renders_dawn_dusk")
 
     frames, meta = compute_pass()
     shots = [dict(name=f"t{int(f['t']):03d}s_elev{int(round(f['obs_elev'])):02d}",

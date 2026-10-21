@@ -3,6 +3,14 @@
 *.blend2
 *.blend@
 
+# Python caches
+__pycache__/
+*.pyc
+
+# Scratch files left by interrupted test runs
+_tmp*
+_chk*
+
 # OS files
 Thumbs.db
 .DS_Store

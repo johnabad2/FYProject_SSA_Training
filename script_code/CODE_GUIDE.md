@@ -1,6 +1,6 @@
 # Code guide
 
-Everything lives in this folder. There are two kinds of script:
+The scripts live in `script_code/` and `plots/`; their results go into `material_tests/`, `fidelity_test/` and `renders/`. There are two kinds of script:
 
 * **Blender scripts** (run inside Blender): they build the scene, render pictures and measure brightness.
 * **Plot scripts** (`plots/`, run with any Python): they turn the measured data into the graphs.
@@ -14,7 +14,7 @@ In Blender open the **Scripting** tab, open `run_tests.py`, set `TEST = "..."` a
 | `"setup"`     | `setup_scene.py`          | Black space world, one Sun lamp, camera framed on Aqua, satellites laid out apart.             |
 | `"stills"`    | `render_angles.py`        | 6 stills of each satellite at different Sun angle, viewing angle and rotation.                  |
 | `"dawn_dusk"` | `dawn_dusk_scenario.py`   | Dawn-dusk polar orbit: Sun, observer and spin for 10 moments of one visible pass.               |
-| `"animation"` | `make_animation.py`       | The same pass as 240 frames, joined into `dawn_dusk_pass.mp4` (both satellites side by side).   |
+| `"animation"` | `make_animation.py`       | The same pass as 240 frames (kept in `C:\SSA\animation_frames`), joined into `renders/renders_dawn_dusk/dawn_dusk_pass.mp4`. |
 | `"materials"` | `material_tests.py`       | Flat plate, matte sphere, shiny panel spun 360 degrees; sphere moved away. Writes CSV data.     |
 | `"fidelity"`  | `fidelity_test.py`        | Detailed Aqua vs reduced versions at the same angles; brightness and washout with distance.     |
 
@@ -29,14 +29,14 @@ Not in the launcher (run from the Blender console with `runpy`):
 
 ## Making the graphs and videos (outside Blender)
 
-Needs Python with numpy, matplotlib and Pillow (videos also need ffmpeg). Run from this folder:
+Needs Python with numpy, matplotlib and Pillow (videos also need ffmpeg). Run from the project folder (`FYProject_SSA_Training`):
 
-| Command                                          | Reads                                   | Writes                                                                                         |
-|--------------------------------------------------|-----------------------------------------|------------------------------------------------------------------------------------------------|
-| `python plots/plot_material_tests.py`            | `material_tests/data/*.csv`, `samples/` | `material_tests/brightness_vs_angle.png`, `sample_renders.png`, `data/summary_stats.json`       |
-| `python plots/plot_fidelity.py`                  | `fidelity_test/data/`                   | `fidelity_test/fidelity_main.png`, `fidelity_pictures.png`, `data/summary_stats.json`           |
-| `python make_sun_sweep_media.py renders_sun_sweep` | `renders_sun_sweep/*.png`             | contact sheets and `sun_sweep.mp4`                                                              |
-| `python make_spin_animation.py fidelity_test`    | `fidelity_test/animation_spin90/`       | `fidelity_test/spin_sun90.mp4`                                                                  |
+| Command                                                                  | Reads                                   | Writes                                                                                   |
+|--------------------------------------------------------------------------|-----------------------------------------|------------------------------------------------------------------------------------------|
+| `python plots/plot_material_tests.py`                                    | `material_tests/data/*.csv`, `samples/` | `material_tests/brightness_vs_angle.png`, `sample_renders.png`, `data/summary_stats.json` |
+| `python plots/plot_fidelity.py`                                          | `fidelity_test/data/`                   | `fidelity_test/fidelity_main.png`, `fidelity_pictures.png`, `data/summary_stats.json`     |
+| `python script_code/make_sun_sweep_media.py renders/renders_sun_sweep`   | `renders/renders_sun_sweep/*.png`       | contact sheets and `sun_sweep.mp4` in the same folder                                     |
+| `python script_code/make_spin_animation.py fidelity_test`                | `fidelity_test/animation_spin90/`       | `fidelity_test/spin_sun90.mp4`                                                            |
 
 ## What each graph shows
 
