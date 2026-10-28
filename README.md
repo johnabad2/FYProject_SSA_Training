@@ -9,6 +9,7 @@ ground as it moves, spins and is lit by the Sun, using Blender renders of NASA's
 |---|---|
 | [`docs/IDEAL_CASE.md`](docs/IDEAL_CASE.md) | Write-up of the results so far (ideal conditions) |
 | [`docs/METHODS_AND_SOURCES.md`](docs/METHODS_AND_SOURCES.md) | The maths behind every result and a source for every outside value |
+| [`docs/REAL_PASSES_EXPLAINED.md`](docs/REAL_PASSES_EXPLAINED.md) | Real satellites over DCU: the physics, the logic, and where every number comes from |
 | [`docs/CODE_GUIDE.md`](docs/CODE_GUIDE.md) | Which script does what, and how to run it |
 
 ## Folders

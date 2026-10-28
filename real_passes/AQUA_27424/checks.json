@@ -1,0 +1,35 @@
+{
+ "run": "AQUA_27424",
+ "tle_epoch_utc": "2026-10-28T13:44:21.070160+00:00",
+ "shadow": {
+  "samples": 3173,
+  "agree_pct": 99.56,
+  "disagree": 14,
+  "max_km_from_shadow_edge_where_disagree": 7.2
+ },
+ "distance": {
+  "median_abs_diff_km": 1.29,
+  "max_abs_diff_km": 4.66,
+  "min_range_km": 696.4,
+  "max_range_km": 3067.3
+ },
+ "orbit": {
+  "mean_motion_rev_per_day": 14.62254291,
+  "inclination_deg": 98.4467,
+  "eccentricity": 8.16e-05,
+  "period_min": 98.478,
+  "semi_major_axis_km": 7064.0,
+  "height_above_equatorial_radius_km": 685.9,
+  "height_above_mean_radius_km": 693.0,
+  "perigee_apogee_height_km": [
+   685.3,
+   686.5
+  ],
+  "j2_node_drift_deg_per_day": 1.0237,
+  "sun_synchronous_rate_deg_per_day": 0.9856,
+  "horizon_angle_deg": 25.59,
+  "longest_possible_pass_min": 14.0,
+  "range_ratio_horizon_to_overhead": 4.4,
+  "longest_pass_in_data_min": 13.92
+ }
+}

@@ -146,7 +146,9 @@ def figure(folder):
     cb = fig.colorbar(sc, ax=ax, pad=0.01, fraction=0.045); cb.set_label("phase angle (degrees)", color=INK2); cb.outline.set_visible(False)
     ax.set_xlim(0, 90); ax.set_xlabel("zenith angle (degrees from straight overhead)"); ax.set_ylabel("distance (km)")
     ax.legend(loc="upper left", frameon=False, fontsize=9.5)
-    _title(ax, "Zenith angle against distance, every sample", "closest overhead, about 3 times further at the horizon; colour = Sun angle")
+    near, far = s["range_km"].min(), s["range_km"].max()
+    _title(ax, "Zenith angle against distance, every sample",
+           f"closest overhead ({near:.0f} km), {far / near:.1f} times further at the horizon ({far:.0f} km); colour = Sun angle")
 
     out = os.path.join(folder, "passes_overview.png")
     _write(out, lambda p: fig.savefig(p, dpi=120, facecolor=SURF)); plt.close(fig)

@@ -38,6 +38,9 @@ Needs `pip install skyfield` (brings sgp4).  Run from the project folder:
 |---|---|
 | `python script_code/real_pass.py AQUA` (a name or catalogue number; options `--days`, `--step`, `--start`, `--lat/--lon/--elev`) | `real_passes/<NAME>_<number>/`: `passes.csv`, `samples.csv`, `run_info.json`, and `sources/` (the downloaded TLE and catalogue record, with download times) |
 | `python plots/plot_real_pass.py` | `real_passes/<NAME>_<number>/passes_overview.png` |
+| `python script_code/check_real_pass.py` | `real_passes/<NAME>_<number>/checks.json`: shadow and distance checks, and the orbit worked out by hand from the TLE |
+
+The physics, logic and sources behind all of this are in `docs/REAL_PASSES_EXPLAINED.md`.
 
 The orbit is downloaded from CelesTrak (reused for 2 hours rather than downloaded again); the Sun's position file
 (DE421) is downloaded once into `real_passes/ephemeris/`.
