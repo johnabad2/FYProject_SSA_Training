@@ -1,0 +1,74 @@
+{
+ "A": {
+  "label": "Aqua (detailed, 115k)",
+  "kind": "satellite",
+  "triangles": 115142,
+  "radius_m": 9.742,
+  "ortho_scale_m": 20.069,
+  "res": 256,
+  "samples": 16
+ },
+ "C": {
+  "label": "Suomi NPP (low-poly, 4k)",
+  "kind": "satellite",
+  "triangles": 4024,
+  "radius_m": 5.571,
+  "ortho_scale_m": 11.476,
+  "res": 256,
+  "samples": 16
+ },
+ "sphere_matte": {
+  "label": "matte sphere",
+  "kind": "shape",
+  "triangles": 9024,
+  "radius_m": 1.954,
+  "ortho_scale_m": 4.026,
+  "res": 256,
+  "samples": 16
+ },
+ "plate_matte": {
+  "label": "matte flat plate",
+  "kind": "shape",
+  "triangles": 2,
+  "radius_m": 1.414,
+  "ortho_scale_m": 2.913,
+  "res": 256,
+  "samples": 16
+ },
+ "plate_shiny": {
+  "label": "shiny flat plate",
+  "kind": "shape",
+  "triangles": 2,
+  "radius_m": 1.414,
+  "ortho_scale_m": 2.913,
+  "res": 256,
+  "samples": 16
+ },
+ "cube_matte": {
+  "label": "matte cube",
+  "kind": "shape",
+  "triangles": 12,
+  "radius_m": 1.386,
+  "ortho_scale_m": 2.854,
+  "res": 256,
+  "samples": 16
+ },
+ "cylinder_matte": {
+  "label": "matte cylinder",
+  "kind": "shape",
+  "triangles": 252,
+  "radius_m": 1.389,
+  "ortho_scale_m": 2.862,
+  "res": 256,
+  "samples": 16
+ },
+ "boxwing_matte": {
+  "label": "matte box-wing",
+  "kind": "shape",
+  "triangles": 14,
+  "radius_m": 2.358,
+  "ortho_scale_m": 4.857,
+  "res": 256,
+  "samples": 16
+ }
+}

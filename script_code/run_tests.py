@@ -14,9 +14,14 @@ TESTS
                exist, assemble dawn_dusk_pass.mp4                              (~10+ min)
   "materials"  flat plate / matte sphere / shiny panel spin sweeps + distance (~5 min)
   "fidelity"   detailed vs cheap model brightness comparison                  (~15 min)
+  "brightness_map"  every Sun direction x every observer direction, satellites
+               and simple shapes; stops after ~10 min, run again to continue
+               (satellites ~30 min, everything ~2 h)
+  "light_curves"  spin light curves about 24 axes + stable vs tumbling pass,
+               both satellites (resumable)                                    (~35 min)
 
 Blender is busy (frozen) while a test runs; that is normal. Re-running an unfinished
-"animation" or "fidelity" continues where it left off.
+"animation", "fidelity", "brightness_map" or "light_curves" continues where it left off.
 """
 import os
 import runpy
@@ -48,6 +53,10 @@ def main(test=TEST):
         return out
     if test == "fidelity":
         return load("fidelity_test.py")["run"]()
+    if test == "brightness_map":
+        return load("brightness_map.py")["run"]()
+    if test == "light_curves":
+        return load("light_curves.py")["run"]()
     raise ValueError(f"unknown TEST {test!r}")
 
 

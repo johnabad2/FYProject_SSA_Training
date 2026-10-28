@@ -11,6 +11,10 @@ __pycache__/
 _tmp*
 _chk*
 
+# Raw video frames (rebuilt by video_frames.py / make_videos.py; the MP4s are kept)
+videos/frames/
+videos/composed/
+
 # OS files
 Thumbs.db
 .DS_Store

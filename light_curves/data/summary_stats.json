@@ -1,0 +1,144 @@
+{
+ "reference": "real apparent magnitudes as seen from 1,000 km",
+ "mag_tol": 0.1,
+ "spin_degeneracy_pct": {
+  "A": {
+   "30": {
+    "k1": 80.7,
+    "k2": 64.58,
+    "k3": 45.18,
+    "k6": 12.47,
+    "k12": 0.77,
+    "k18": 0.0,
+    "k36": 0.0
+   },
+   "90": {
+    "k1": 79.88,
+    "k2": 24.92,
+    "k3": 9.43,
+    "k6": 0.45,
+    "k12": 0.0,
+    "k18": 0.0,
+    "k36": 0.0
+   },
+   "150": {
+    "k1": 65.61,
+    "k2": 7.24,
+    "k3": 0.63,
+    "k6": 0.0,
+    "k12": 0.0,
+    "k18": 0.0,
+    "k36": 0.0
+   }
+  },
+  "C": {
+   "30": {
+    "k1": 75.61,
+    "k2": 55.48,
+    "k3": 37.68,
+    "k6": 10.51,
+    "k12": 0.38,
+    "k18": 0.04,
+    "k36": 0.0
+   },
+   "90": {
+    "k1": 77.05,
+    "k2": 26.18,
+    "k3": 10.55,
+    "k6": 0.64,
+    "k12": 0.0,
+    "k18": 0.0,
+    "k36": 0.0
+   },
+   "150": {
+    "k1": 59.99,
+    "k2": 5.51,
+    "k3": 0.65,
+    "k6": 0.02,
+    "k12": 0.0,
+    "k18": 0.0,
+    "k36": 0.0
+   }
+  }
+ },
+ "full_curve_lookalike_pairs": {
+  "A": {
+   "phase": 90,
+   "pairs_within_tol": 0,
+   "pairs": 276,
+   "median_best_rms_mag": 0.905
+  },
+  "C": {
+   "phase": 90,
+   "pairs_within_tol": 0,
+   "pairs": 276,
+   "median_best_rms_mag": 0.903
+  }
+ },
+ "earth_pointing_vs_any": {
+  "A": {
+   "geometries_any": 2304,
+   "geometries_earth_pointing": 624,
+   "median_degeneracy_any": 0.057,
+   "median_degeneracy_earth_pointing": 0.107,
+   "range_p5_p95_any_mag": 7.28,
+   "range_p5_p95_earth_mag": 6.71
+  },
+  "C": {
+   "geometries_any": 2304,
+   "geometries_earth_pointing": 624,
+   "median_degeneracy_any": 0.057,
+   "median_degeneracy_earth_pointing": 0.071,
+   "range_p5_p95_any_mag": 5.49,
+   "range_p5_p95_earth_mag": 5.99
+  }
+ },
+ "pass_mag_min_median_max": {
+  "A": {
+   "stable": [
+    3.46,
+    8.83,
+    9.49
+   ],
+   "slow_spin": [
+    5.36,
+    9.19,
+    10.6
+   ],
+   "tumble": [
+    3.62,
+    7.72,
+    11.84
+   ]
+  },
+  "C": {
+   "stable": [
+    7.95,
+    8.49,
+    10.45
+   ],
+   "slow_spin": [
+    5.63,
+    7.6,
+    11.72
+   ],
+   "tumble": [
+    4.21,
+    7.33,
+    11.66
+   ]
+  }
+ },
+ "flicker_mag_per_10s": {
+  "A": {
+   "stable": 0.056,
+   "slow_spin": 0.444,
+   "tumble": 2.703
+  },
+  "C": {
+   "stable": 0.061,
+   "slow_spin": 0.36,
+   "tumble": 3.117
+  }
+ }
+}

@@ -13,6 +13,7 @@ ANGLE CONVENTIONS (all in degrees)
                     starting at the +X axis. 0 = +X, 90 = +Y, 180 = -X, 270 = -Y.
   sun_el / cam_el : elevation above the horizontal XY plane. 90 = straight above.
   rot_x / rot_z   : rotation of the satellite about its own centre (X then Z).
+  rot_euler       : optional instead of rot_x / rot_z: any rotation as an (x, y, z) Euler triple in radians.
   The Sun / camera sit on a sphere around the satellite, so
   sun_az == cam_az and sun_el == cam_el means "Sun directly behind the camera"
   (the satellite is fully lit from the camera's point of view).
@@ -238,8 +239,11 @@ def main(out_dir=None, engine="EEVEE", shots=None, models=None, res=RES, samples
             dist = g["radius"] * fit / math.sin(fov / 2)        # fit < 1 = tighter (may clip); 1 = never clips
 
             for i, shot in enumerate(shots, 1):
-                g["pivot"].rotation_euler = (math.radians(shot.get("rot_x", 0)), 0,
-                                             math.radians(shot.get("rot_z", 0)))
+                if "rot_euler" in shot:                     # any rotation (radians), e.g. tumbling about a tilted axis
+                    g["pivot"].rotation_euler = shot["rot_euler"]
+                else:
+                    g["pivot"].rotation_euler = (math.radians(shot.get("rot_x", 0)), 0,
+                                                 math.radians(shot.get("rot_z", 0)))
                 sun_dir = direction(shot["sun_az"], shot["sun_el"])      # centre -> Sun
                 sun.location = centre + sun_dir * (dist * 2)
                 look_along(sun, -sun_dir)                                 # light travels towards the satellite
