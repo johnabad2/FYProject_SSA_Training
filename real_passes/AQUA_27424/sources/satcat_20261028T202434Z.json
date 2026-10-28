@@ -1,0 +1,21 @@
+[
+ {
+  "OBJECT_NAME": "AQUA",
+  "OBJECT_ID": "2002-022A",
+  "NORAD_CAT_ID": 27424,
+  "OBJECT_TYPE": "PAY",
+  "OPS_STATUS_CODE": "+",
+  "OWNER": "US",
+  "LAUNCH_DATE": "2002-05-04",
+  "LAUNCH_SITE": "AFWTR",
+  "DECAY_DATE": "",
+  "PERIOD": 98.48,
+  "INCLINATION": 98.45,
+  "APOGEE": 686,
+  "PERIGEE": 685,
+  "RCS": 7.8419,
+  "DATA_STATUS_CODE": "",
+  "ORBIT_CENTER": "EA",
+  "ORBIT_TYPE": "ORB"
+ }
+]

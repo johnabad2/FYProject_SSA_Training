@@ -30,6 +30,18 @@ Not in the launcher (run from the Blender console with `runpy`):
 
 `render_angles.py` is the shared base: the other scripts call it for the Sun/camera placement and rendering.
 
+## Real passes (outside Blender)
+
+Needs `pip install skyfield` (brings sgp4).  Run from the project folder:
+
+| Command | Writes |
+|---|---|
+| `python script_code/real_pass.py AQUA` (a name or catalogue number; options `--days`, `--step`, `--start`, `--lat/--lon/--elev`) | `real_passes/<NAME>_<number>/`: `passes.csv`, `samples.csv`, `run_info.json`, and `sources/` (the downloaded TLE and catalogue record, with download times) |
+| `python plots/plot_real_pass.py` | `real_passes/<NAME>_<number>/passes_overview.png` |
+
+The orbit is downloaded from CelesTrak (reused for 2 hours rather than downloaded again); the Sun's position file
+(DE421) is downloaded once into `real_passes/ephemeris/`.
+
 ## Making the graphs and videos (outside Blender)
 
 Needs Python with numpy, matplotlib and Pillow (videos also need ffmpeg). Run from the project folder (`FYProject_SSA_Training`):
@@ -45,6 +57,8 @@ Needs Python with numpy, matplotlib and Pillow (videos also need ffmpeg). Run fr
 | `python script_code/make_spin_animation.py fidelity_test`                | `fidelity_test/animation_spin90/`       | `fidelity_test/spin_sun90.mp4`                                                            |
 
 ## What each graph shows
+
+* `real_passes/<NAME>_<number>/passes_overview.png`: every pass of a real satellite over the observer on the sky, when the passes happen and how high they get, the highest visible pass moment by moment (elevation, distance, entering Earth's shadow), and zenith angle against distance with the formula as a check.
 
 * `brightness_vs_angle.png`: brightness against spin angle for the plate, the sphere and the shiny panel, plus a zoom on a glint and the sphere moving away (1/distance squared).
 * `fidelity_main.png`: brightness curves of the detailed vs cheap models, error against triangle count, and how the error shrinks as the satellite gets further away.

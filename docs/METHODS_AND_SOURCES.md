@@ -224,9 +224,45 @@ work should take current orbits from CelesTrak.
 
 ---
 
-## 8. Not modelled yet (in the planned order)
+## 8. Real passes over a real observer (`script_code/real_pass.py`)
 
-Real orbit and observer → horizon → zenith angle vs distance → Earth's shadow (eclipse) → atmosphere
+**Input, fetched and saved automatically.**  Given a name or catalogue number, the script downloads from
+CelesTrak [22] the satellite's current orbital elements (a TLE) and its catalogue record (SATCAT: type, owner,
+launch, size), and saves both exactly as received with the download time (`real_passes/<name>/sources/`).
+
+**Orbit model: SGP4.**  TLEs are mean elements fitted for the SGP4 model, so they are propagated with SGP4
+(the `sgp4` library, which implements Vallado et al. 2006 [23]), through Skyfield [24].  Prediction quality
+falls off with the TLE's age, so every run records it (`run_info.json`).
+
+**Why Skyfield and SGP4 here, not TudatPy** (✎ decision, 28 Oct 2026): TudatPy, chosen in the tool survey
+for orbit propagation, installs only through conda, which is not on this machine; and for this step SGP4 is the
+right model anyway, since TLEs are made for it and GPredict and Heavens-Above use it too, which makes the
+cross-checks like-for-like.  TudatPy remains the plan for numerical propagation with drag and thruster burns.
+
+**For each moment** (every 5 s through each pass): elevation and azimuth; distance; the satellite's height;
+**in sunlight or in Earth's shadow** (Skyfield's `is_sunlit`, using JPL's DE421 Sun position [25]); the Sun's
+elevation at the observer; and the phase angle (§4a).  A pass runs from rising above the horizon to setting;
+it is **visible** if at some moment the satellite is sunlit while the Sun is more than 6° below the observer's
+horizon (✎ end of civil twilight).
+
+**Observer:** DCU Glasnevin, 53.384954° N, 6.256542° W (DCU's Wikipedia entry [26]); height 60 m (✎ assumed;
+negligible effect).
+
+**Checks** (Aqua, 28–31 Oct 2026):
+* *Distance:* the spherical-Earth formula of §4b, using each sample's height, matches the full calculation
+  to within 5 km (median 1 km).  ✓
+* *Earth's shadow:* a simple cylinder-shaped shadow (in shadow if behind the Earth and within one Earth radius
+  of the Earth–Sun line) agrees with Skyfield on 99.6 % of 3,173 samples; all 14 disagreements are at the
+  shadow's edge.  ✓
+* *Independent prediction:* against Heavens-Above [27], the highest point of all six common passes agrees to
+  within 2 s and 0.5°, and the moment of entering Earth's shadow to within 5 s.  ✓
+  Details: `real_passes/AQUA_27424/check_heavens_above.md`.
+* *Orbit height:* the current TLE gives about 690 km (closest approach 696 km on an 85° pass), confirming
+  that Aqua is now below its 705 km design height.  ✓
+
+## 9. Not modelled yet (in the planned order)
+
+Brightness along a real pass (needs the satellite's attitude: Earth-pointing for Aqua) → atmosphere
 (extinction grows with airmass, roughly 1 / cos(zenith angle)) → measurement noise.  ⚠ Each needs its own
 source when added.
 
@@ -255,3 +291,9 @@ source when added.
 19. AST SpaceMobile press release (2022), BlueWalker 3 array 693 ft² (64.4 m²). https://www.businesswire.com/news/home/20220908005651/en ; altitude 508–527 km (Nov 2022) from the BlueWalker 3 Wikipedia entry ⚠ check against current orbit data.
 20. Spaceflight101, *Eutelsat 3B* (Eurostar-3000: 7.5 m high, 31 m span). https://spaceflight101.com/spacecraft/?p=1644  ⚠ secondary source: check Airbus or Eutelsat.
 21. American Meteorological Society, *Glossary of Meteorology: geostationary satellite* (35,786 km above the equator). https://glossarytest.ametsoc.net/wiki/Geostationary_satellites
+22. CelesTrak: current orbital elements (GP data) https://celestrak.org/NORAD/elements/gp.php and the satellite catalogue (SATCAT, format: https://celestrak.org/satcat/satcat-format.php).
+23. Vallado, D. A., Crawford, P., Hujsak, R. & Kelso, T. S. (2006). *Revisiting Spacetrack Report #3.* AIAA 2006-6753.  ⚠ read it; the `sgp4` Python library (https://pypi.org/project/sgp4/) implements it.
+24. Rhodes, B. *Skyfield* (version 1.55). https://rhodesmill.org/skyfield/  ⚠ cite as the library's documentation asks (Astrophysics Source Code Library entry).
+25. JPL planetary ephemeris DE421 (Folkner, Williams & Boggs 2008, IPN Progress Report 42-178).  ⚠ check the citation.
+26. *Dublin City University*, Wikipedia (coordinates 53°23′06″N 6°15′24″W). https://en.wikipedia.org/wiki/Dublin_City_University
+27. Heavens-Above, pass predictions for Aqua (27424) from DCU. https://www.heavens-above.com/PassSummary.aspx?satid=27424&lat=53.385&lng=-6.2565&loc=DCU&alt=60&tz=UCT

@@ -1,0 +1,50 @@
+{
+ "satellite": "AQUA",
+ "catalogue_number": 27424,
+ "tle": [
+  "1 27424U 02022A   26301.57246609  .00000373  00000+0  83860-4 0  9997",
+  "2 27424  98.4467 273.6488 0000816  94.4519  15.5601 14.62254291302766"
+ ],
+ "tle_epoch_utc": "2026-10-28T13:44:21.070160+00:00",
+ "tle_file": "sources/tle_20261028T202434Z.txt",
+ "tle_age_at_start_days": 0.278,
+ "satcat": {
+  "OBJECT_NAME": "AQUA",
+  "OBJECT_ID": "2002-022A",
+  "NORAD_CAT_ID": 27424,
+  "OBJECT_TYPE": "PAY",
+  "OPS_STATUS_CODE": "+",
+  "OWNER": "US",
+  "LAUNCH_DATE": "2002-05-04",
+  "LAUNCH_SITE": "AFWTR",
+  "DECAY_DATE": "",
+  "PERIOD": 98.48,
+  "INCLINATION": 98.45,
+  "APOGEE": 686,
+  "PERIGEE": 685,
+  "RCS": 7.8419,
+  "DATA_STATUS_CODE": "",
+  "ORBIT_CENTER": "EA",
+  "ORBIT_TYPE": "ORB"
+ },
+ "observer": {
+  "name": "DCU Glasnevin, Dublin",
+  "lat": 53.384954,
+  "lon": -6.256542,
+  "elev_m": 60.0,
+  "source": "https://en.wikipedia.org/wiki/Dublin_City_University (coordinates); height assumed"
+ },
+ "window_start_utc": "2026-10-28T20:24:00+00:00",
+ "window_days": 3.0,
+ "step_s": 5.0,
+ "min_elev_deg": 0.0,
+ "dark_sun_alt_deg": -6.0,
+ "ephemeris": "de421.bsp",
+ "model": "SGP4 (TLE)",
+ "versions": {
+  "skyfield": "1.55",
+  "sgp4": "2.27"
+ },
+ "passes": 24,
+ "visible_passes": 9
+}

@@ -23,6 +23,7 @@ ground as it moves, spins and is lit by the Sun, using Blender renders of NASA's
 | `fidelity_test/` | Detailed vs simplified Aqua models: how much the brightness curve changes.            |
 | `brightness_map/`| Brightness for every Sun × observer direction: range of values and degeneracy.         |
 | `light_curves/`  | Brightness over time: spins about many axes, and stable vs tumbling over a pass.       |
+| `real_passes/`   | Real satellites on their current orbits, seen from DCU: every pass, sky position, distance, Earth's shadow. |
 | `videos/`        | Explainer videos: stable vs tumbling, and what a ground telescope actually sees.        |
 | `renders/`       | Still renders (EEVEE and Cycles), the dawn-dusk pass and the Sun sweep, with videos.   |
 

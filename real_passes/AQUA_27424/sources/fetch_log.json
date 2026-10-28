@@ -1,0 +1,14 @@
+[
+ {
+  "what": "TLE (current orbital elements)",
+  "url": "https://celestrak.org/NORAD/elements/gp.php?NAME=AQUA&FORMAT=TLE",
+  "fetched_utc": "2026-10-28T20:24:34.235183+00:00",
+  "file": "tle_20261028T202434Z.txt"
+ },
+ {
+  "what": "SATCAT record",
+  "url": "https://celestrak.org/satcat/records.php?CATNR=27424&FORMAT=JSON",
+  "fetched_utc": "2026-10-28T20:24:34.235183+00:00",
+  "file": "satcat_20261028T202434Z.json"
+ }
+]
